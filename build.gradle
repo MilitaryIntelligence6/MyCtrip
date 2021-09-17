@@ -1,0 +1,34 @@
+apply from: this.rootProject.file('ctrip.gradle')
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.3'
+        // butterknife 视图注解依赖
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.1'
+        //ARouter插件依赖
+        classpath "com.alibaba:arouter-register:1.0.2"
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

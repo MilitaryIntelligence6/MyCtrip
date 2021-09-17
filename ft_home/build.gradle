@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.alibaba.arouter'
+
+android {
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        //ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compileOnly rootProject.depsLibs.appcompat
+    compileOnly rootProject.depsLibs.legacy
+    compileOnly rootProject.depsLibs.recyclerview
+    compileOnly rootProject.depsLibs.constraintlayout
+    compileOnly rootProject.depsLibs.cardview
+
+    //tab指示器
+    compileOnly rootProject.depsLibs.magicindicator
+    //沉浸式
+    compileOnly rootProject.depsLibs.immersionbar
+    //rxjava
+    compileOnly rootProject.depsLibs.rxjava
+    //rxandroid
+    compileOnly rootProject.depsLibs.rxandroid
+    //view 注入
+    compileOnly rootProject.depsLibs.butterknife
+    //view 注入
+    annotationProcessor rootProject.depsLibs.butterknifeCompiler
+    //gson
+    compileOnly rootProject.depsLibs.gson
+    //banner
+    compileOnly rootProject.depsLibs.banner
+    //smartRefreshLayout 上下拉刷新
+    compileOnly rootProject.depsLibs.smartRefreshLayout
+    compileOnly rootProject.depsLibs.refreshHeader
+    compileOnly rootProject.depsLibs.refreshHeaderTwoLevel
+    compileOnly rootProject.depsLibs.refreshFooter
+    //eventbus
+    compileOnly rootProject.depsLibs.eventbus
+    //arouter库
+    compileOnly(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
+
+    //引入图片加载库
+    compileOnly project(':lib_image_loader')
+    //引入网络库
+    compileOnly project(':lib_network')
+    //webview
+    compileOnly project(':lib_webview')
+    //引入基础ui库
+    compileOnly project(':lib_common_ui')
+    //base库
+    compileOnly project(':lib_base')
+    //引入flutter模块
+    compileOnly project(path: ':flutter')
+    //引入flutter模块
+    compileOnly project(':lib_asr')
+}
