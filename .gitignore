@@ -22,3 +22,5 @@ ctrip_key_store
 
 # Project exclude paths
 /flutter_module/.dart_tool/
+
+/backup
