@@ -20,6 +20,6 @@ public class MethodChannelServiceImp implements MethodChannelService {
 
     @Override
     public void init(Context context) {
-        Log.i(MethodChannelServiceImp.class.getSimpleName(),"init");
+        Log.i(MethodChannelServiceImp.class.getSimpleName(), "init");
     }
 }

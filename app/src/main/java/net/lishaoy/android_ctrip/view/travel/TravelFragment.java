@@ -34,20 +34,20 @@ public class TravelFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FlutterView flutterView = Flutter.createView(getActivity(),getLifecycle(),"travel");
+        FlutterView flutterView = Flutter.createView(getActivity(), getLifecycle(), "travel");
         MethodChannelPlugin.registerWith(flutterView);
         return flutterView;
     }
 
     @Subscribe
-    public void gotoTravelSearchPageEvent(GotoTravelSearchPageEvent event){
+    public void gotoTravelSearchPageEvent(GotoTravelSearchPageEvent event) {
         startActivity(new Intent(getContext(), TravelSearchActivity.class));
     }
 
     @Subscribe
-    public void gotoSpeakPage (GotoSpeakTravelPageEvent event){
+    public void gotoSpeakPage(GotoSpeakTravelPageEvent event) {
         Intent intent = new Intent(getContext(), SpeakActivity.class);
-        intent.putExtra("pageType",event.getPageType());
+        intent.putExtra("pageType", event.getPageType());
         startActivity(intent);
     }
 

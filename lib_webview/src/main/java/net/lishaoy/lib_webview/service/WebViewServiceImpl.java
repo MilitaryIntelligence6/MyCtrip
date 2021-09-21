@@ -19,7 +19,7 @@ public class WebViewServiceImpl implements WebViewService {
                 .navigation();
     }
 
-    public void gotoWebView(String url,boolean isHideBar){
+    public void gotoWebView(String url, boolean isHideBar) {
         ARouter.getInstance()
                 .build("/webview/web_activity")
                 .withString("url", url)
@@ -29,6 +29,6 @@ public class WebViewServiceImpl implements WebViewService {
 
     @Override
     public void init(Context context) {
-        Log.i(WebViewServiceImpl.class.getSimpleName(),"init");
+        Log.i(WebViewServiceImpl.class.getSimpleName(), "init");
     }
 }

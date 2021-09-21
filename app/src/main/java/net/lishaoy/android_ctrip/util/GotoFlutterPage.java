@@ -14,8 +14,8 @@ public class GotoFlutterPage extends FragmentActivity {
         startActivity(
                 FlutterActivity
                         .withNewEngine()
-                .initialRoute("destination/search")
-                .build(this)
+                        .initialRoute("destination/search")
+                        .build(this)
         );
     }
 }

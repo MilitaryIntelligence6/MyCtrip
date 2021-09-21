@@ -38,7 +38,7 @@ public class DestinationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FlutterView flutterView = Flutter.createView(getActivity(),getLifecycle(),"destination");
+        FlutterView flutterView = Flutter.createView(getActivity(), getLifecycle(), "destination");
         MethodChannelPlugin.registerWith(flutterView);
         return flutterView;
     }
@@ -56,14 +56,14 @@ public class DestinationFragment extends Fragment {
     }
 
     @Subscribe
-    public void gotoDestinationSearchPage(GotoDestinationSearchPageEvent event){
+    public void gotoDestinationSearchPage(GotoDestinationSearchPageEvent event) {
         startActivity(new Intent(getContext(), DestinationSearchActivity.class));
     }
 
     @Subscribe
-    public void gotoSpeakPage (GotoSpeakDestinationPageEvent event){
+    public void gotoSpeakPage(GotoSpeakDestinationPageEvent event) {
         Intent intent = new Intent(getContext(), SpeakActivity.class);
-        intent.putExtra("pageType",event.getPageType());
+        intent.putExtra("pageType", event.getPageType());
         startActivity(intent);
     }
 }

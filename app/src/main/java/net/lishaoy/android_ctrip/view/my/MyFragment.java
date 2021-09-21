@@ -41,7 +41,7 @@ public class MyFragment extends BaseAgentWebFragment {
     @NonNull
     @Override
     protected ViewGroup getAgentWebParent() {
-        return (ViewGroup)this.mViewGroup.findViewById(R.id.my_container);
+        return (ViewGroup) this.mViewGroup.findViewById(R.id.my_container);
     }
 
     @Override

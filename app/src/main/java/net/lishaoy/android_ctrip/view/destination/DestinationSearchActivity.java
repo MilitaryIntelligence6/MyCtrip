@@ -24,12 +24,12 @@ public class DestinationSearchActivity extends AppCompatActivity {
         ImmersionBar.with(this)
                 .statusBarDarkFont(true)
                 .init();
-        FlutterView flutterView = Flutter.createView(this,getLifecycle(),"destination/search");
+        FlutterView flutterView = Flutter.createView(this, getLifecycle(), "destination/search");
         LinearLayout.LayoutParams layoutParams =
                 new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT);
-        setContentView(flutterView,layoutParams);
+        setContentView(flutterView, layoutParams);
         MethodChannelPlugin.registerWith(flutterView);
         AsrPlugin.registerWith(flutterView);
     }

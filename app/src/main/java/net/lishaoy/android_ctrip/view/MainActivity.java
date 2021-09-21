@@ -57,16 +57,21 @@ public class MainActivity extends FragmentActivity {
                 .addItem(newItem(R.mipmap.wode, R.mipmap.wode_active, CHANNEL.MY.getKey()))
                 .build();
 
-        viewPager.setAdapter(new NavigatorAdapter(this,CHANNELS, getSupportFragmentManager(), navigationController.getItemCount()));
+        viewPager.setAdapter(new NavigatorAdapter(this, CHANNELS, getSupportFragmentManager(), navigationController.getItemCount()));
         //自动适配ViewPager页面切换
         navigationController.setupWithViewPager(viewPager);
 
         navigationController.addTabItemSelectedListener(new OnTabItemSelectedListener() {
             @Override
             public void onSelected(int index, int old) {
-                if(index == 0 || index == 3) changeStatusBar(false); else changeStatusBar(true);
+                if (index == 0 || index == 3) {
+                    changeStatusBar(false);
+                } else {
+                    changeStatusBar(true);
+                }
 
             }
+
             @Override
             public void onRepeat(int index) {
 

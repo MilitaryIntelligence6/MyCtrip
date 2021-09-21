@@ -27,12 +27,12 @@ public class SpeakActivity extends AppCompatActivity {
                 .statusBarDarkFont(true)
                 .init();
         sRoute = "speak/" + getIntent().getStringExtra("pageType");
-        FlutterView flutterView = Flutter.createView(this,getLifecycle(), sRoute);
+        FlutterView flutterView = Flutter.createView(this, getLifecycle(), sRoute);
         LinearLayout.LayoutParams layoutParams =
                 new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT);
-        setContentView(flutterView,layoutParams);
+        setContentView(flutterView, layoutParams);
         MethodChannelPlugin.registerWith(flutterView);
         AsrPlugin.registerWith(flutterView);
     }

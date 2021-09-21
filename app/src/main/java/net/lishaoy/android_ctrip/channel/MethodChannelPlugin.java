@@ -17,6 +17,7 @@ import io.flutter.view.FlutterView;
 public class MethodChannelPlugin implements MethodChannel.MethodCallHandler {
 
     private static MethodChannel methodChannel;
+
     private Activity activity;
 
     private MethodChannelPlugin(Activity activity) {
@@ -35,20 +36,20 @@ public class MethodChannelPlugin implements MethodChannel.MethodCallHandler {
             EventBus.getDefault().post(new GotoDestinationSearchPageEvent());
             result.success(200);
         } else if (methodCall.method.equals("gotoSpeakPage")) {
-            if(methodCall.argument("pageType").equals("destination")){
+            if (methodCall.argument("pageType").equals("destination")) {
                 EventBus.getDefault().post(new GotoSpeakDestinationPageEvent(methodCall.argument("pageType")));
-            }if(methodCall.argument("pageType").equals("travel")){
+            }
+            if (methodCall.argument("pageType").equals("travel")) {
                 EventBus.getDefault().post(new GotoSpeakTravelPageEvent(methodCall.argument("pageType")));
             }
             result.success(200);
         } else if (methodCall.method.equals("gotoWebView")) {
             WebViewImpl.getInstance().gotoWebView(methodCall.argument("url"));
             result.success(200);
-        }else if (methodCall.method.equals("gotoTravelSearchPage")){
+        } else if (methodCall.method.equals("gotoTravelSearchPage")) {
             EventBus.getDefault().post(new GotoTravelSearchPageEvent());
             result.success(200);
-        }
-        else {
+        } else {
             result.notImplemented();
         }
     }
