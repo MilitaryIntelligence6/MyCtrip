@@ -64,7 +64,7 @@ public class FoodFragment extends Fragment {
     }
 
     private void requestDatas() {
-        int pageId = i ++;
+        int pageId = i++;
         RequestCenter.requestHomeTabFood(String.valueOf(pageId), "20", new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
@@ -81,7 +81,7 @@ public class FoodFragment extends Fragment {
     }
 
     @Subscribe
-    public void onLoadMoreFoodData(LoadMoreFoodEvent event){
+    public void onLoadMoreFoodData(LoadMoreFoodEvent event) {
         requestDatas();
     }
 
@@ -93,7 +93,7 @@ public class FoodFragment extends Fragment {
             }
         };
         tabFoodRecyclerContainer.setLayoutManager(staggeredGridLayoutManager);
-        TabFoodAdapter tabFoodAdapter = new TabFoodAdapter(getContext(),restaurants);
+        TabFoodAdapter tabFoodAdapter = new TabFoodAdapter(getContext(), restaurants);
         tabFoodRecyclerContainer.setAdapter(tabFoodAdapter);
     }
 
